@@ -16,7 +16,7 @@ class OEmbed {
 	 *
 	 * @var		array
 	 */
-	private $data = [];
+	private $data = array();
 
 	/**
 	 * Main Constructor
@@ -211,7 +211,7 @@ class OEmbed {
 	   $timeout = 10;
 	   $useragent = "EmbedVideo/1.0/".$wgServer;
 	   $dateTime = gmdate("D, d M Y H:i:s", time())." GMT";
-	   $headers = ['Date: '.$dateTime];
+	   $headers = array('Date: '.$dateTime);
 
 	   $curlOptions = [
 		   CURLOPT_TIMEOUT		   => $timeout,

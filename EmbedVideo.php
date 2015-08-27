@@ -21,7 +21,7 @@ if (!defined('MEDIAWIKI')) {
 /******************************************/
 define('EV_VERSION', '2.2.7');
 
-$wgExtensionCredits['parserhook'][] = [
+$wgExtensionCredits['parserhook'][] = array(
 	'path'				=> __FILE__,
 	'name'				=> 'EmbedVideo',
 	'author'			=> ['Jim R. Wilson', 'Andrew Whitworth', 'Alexia E. Smith'],
@@ -29,7 +29,7 @@ $wgExtensionCredits['parserhook'][] = [
 	'version'			=> EV_VERSION,
 	'descriptionmsg'	=> 'embedvideo_description',
 	'license-name'		=> 'MIT'
-];
+);
 
 /******************************************/
 /* Language Strings, Page Aliases, Hooks  */

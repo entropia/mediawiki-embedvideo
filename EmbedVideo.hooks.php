@@ -43,7 +43,7 @@ class EmbedVideoHooks {
 	 *
 	 * @var		string
 	 */
-	static private $validArguments = [
+	static private $validArguments = array(
 		'service'		=> null,
 		'id'			=> null,
 		'dimensions'	=> null,
@@ -51,7 +51,7 @@ class EmbedVideoHooks {
 		'description'	=> null,
 		'container'		=> null,
 		'urlargs'		=> null
-	];
+	);
 
     /**
      * Sets up this extension's parser functions.
@@ -226,13 +226,13 @@ class EmbedVideoHooks {
 
 		$html = self::generateWrapperHTML($html);
 
-		$parser->getOutput()->addModuleStyles(['ext.embedVideo']);
+		$parser->getOutput()->addModuleStyles(array('ext.embedVideo'));
 
-		return [
+		return array(
 			$html,
 			'noparse' => true,
 			'isHTML' => true
-		];
+		);
 	}
 	
 	/**
