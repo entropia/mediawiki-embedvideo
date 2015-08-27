@@ -16,324 +16,324 @@ class VideoService {
 	 *
 	 * @var		array
 	 */
-	static private $services = [
-		'archiveorg' => [
-			'embed'			=> '<iframe src="//archive.org/embed/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio' => 1.2994923857868, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#archive\.org/(?:details|embed)/([\d\w\-_][^/\?\#]+)#is'
-			],
-			'id_regex'		=> [
-				'#^([\d\w\-_][^/\?\#]+)$#is'
-			]
-		],
-		'bambuser' => [
-			'embed'			=> '<iframe src="//embed.bambuser.com/broadcast/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio' => 1.2994923857868, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#bambuser\.com/(?:v|broadcast)/([\d\w\-\+]+)(?:/\S+?)?#is'
-			],
-			'id_regex'		=> [
-				'#^([\d\w\-\+]+)$#is'
-			]
-		],
-		'bambuser_channel' => [
-			'embed' 		=> '<iframe src="//embed.bambuser.com/channel/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio' => 1.2994923857868, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#bambuser\.com/channel/([\d\w\-\+]+)(?:/\S+?)?#is'
-			],
-			'id_regex'		=> [
-				'#^([\d\w\-\+]+)$#is'
-			]
-		],
-		'blip' => [
-			'default_width'	=> 640,
-			'default_ratio' => 1.2994923857868, //(16 / 9)
-			'https_enabled'	=> false,
-			'url_regex'		=> [
-				'#(http://blip\.tv/[\w\d\-]+?/[\w\d\-]+?-[\d]+)#is'
-			],
-			'oembed'		=> 'http://blip.tv/oembed/?url=%1$s&width=%2$d&maxwidth=%2$d'
-		],
-		'bing' => [
-			'embed'			=> '<iframe src="//hub.video.msn.com/embed/%1$s" width="%2$d" height="%3$d" frameborder="0" scrolling="no" noscroll allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#bing.com/videos/watch/video/[\w\d\-]+?/([a-zA-Z0-9]+)(?:/\S+?)?#is'
-			],
-			'id_regex'		=> [
-				'#^([a-zA-Z0-9]+)$#is'
-			]
-		],
-		'collegehumor' => [
-			'embed'			=> '<iframe src="//www.collegehumor.com/e/%1$s" width="%2$d" height="%3$d" frameborder="0" allowFullScreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio' => 1.6260162601626, //(600 / 369)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#collegehumor\.com/(?:video|e)/([\d]+)#is'
-			],
-			'id_regex'		=> [
-				'#^([\d]+)$#is'
-			]
-		],
-		'dailymotion' => [
-			'embed'			=> '<iframe src="//www.dailymotion.com/embed/video/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#dailymotion\.com/(?:video|embed/video)/([a-zA-Z0-9]+)(?:_\S+?)?#is'
-			],
-			'id_regex'		=> [
-				'#^([a-zA-Z0-9]+)(?:_\S+?)#is'
-			]
-		],
-		'divshare' => [
-			'embed'			=> '<iframe src="//www.divshare.com/flash/video2?myId=%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, //(16 / 9)
-			'https_enabled'	=> true
-		],
-		'funnyordie' => [
-			'embed'			=> '<iframe src="http://www.funnyordie.com/embed/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.64102564102564, //(640 / 390)
-			'https_enabled'	=> false,
-			'url_regex'		=> [
-				'#funnyordie\.com/(?:videos|embed)/([a-zA-Z0-9]+)(?:/\S+?)?#is'
-			],
-			'id_regex'		=> [
-				'#^([a-zA-Z0-9]+)$#is'
-			]
-		],
-		'gfycat' => [
-			'embed'			=> '<iframe src="//gfycat.com/ifr/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true" scrolling="no" style="-webkit-backface-visibility: hidden;-webkit-transform: scale(1);" ></iframe>',
-			'default_width'	=> 640,
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#gfycat\.com/([a-zA-Z]+)#is'
-			],
-			'id_regex'		=> [
-				'#^([a-zA-Z]+)$#is'
-			]
-		],
-		'kickstarter' => [
-			'embed'			=> '<iframe src="//www.kickstarter.com/projects/%1$s/widget/video.html" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#kickstarter\.com/projects/([\d\w-]+/[\d\w-]+)(?:/widget/video.html)?#is'
-			],
-			'id_regex'		=> [
-				'#^([\d\w-]+/[\d\w-]+)$#is'
-			]
-		],
-		'metacafe' => [
-			'embed'			=> '<iframe src="http://www.metacafe.com/embed/%1$s/" width="%2$d" height="%3$d" frameborder="0" allowFullScreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, //(16 / 9)
-			'https_enabled'	=> false,
-			'url_regex'		=> [
-				'#metacafe\.com/(?:watch|embed)/([\d]+)(?:/\S+?)?#is'
-			],
-			'id_regex'		=> [
-				'#^([\d]+)$#is'
-			]
-		],
-		'nico' => [
-			'embed'			=> '<script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/%1$s?w=%2$d&h=%3$d"></script>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.59609120521173, //(490 / 307)
-			'https_enabled'	=> false,
-			'url_regex'		=> [
-				'#nicovideo\.jp/watch/((?:[a-zA-Z]{2})?[\d]+)#is'
-			],
-			'id_regex'		=> [
-				'#^((?:[a-zA-Z]{2})?[\d]+)$#is'
-			]
-		],
-		'rutube' => [
-			'embed'			=> '<iframe src="//rutube.ru/play/embed/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#rutube\.ru/video/([a-zA-Z0-9]+)(?:/\S+?)?#is'
-			],
-			'id_regex'		=> [
-				'#^([a-zA-Z0-9]+)$#is'
-			]
-		],
-		'teachertube' => [
-			'embed'			=> '<iframe src="http://www.teachertube.com/embed/video/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.72972972972973, //(640 / 370)
-			'https_enabled'	=> false,
-			'url_regex'		=> [
-				'#teachertube\.com/video/(?:[\w\d\-]+?-)?([\d]+)$#is',
-			],
-			'id_regex'		=> [
-				'#^([\d]+)$#is'
-			]
-		],
-		'ted' => [
-			'embed'			=> '<iframe src="//embed-ssl.ted.com/talks/%1$s.html" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#ted\.com/talks/([\d\w\-]+)(?:/\S+?)?#is',
-			],
-			'id_regex'		=> [
-				'#^([\d\w\-]+)$#is'
-			]
-		],
-		'tudou' => [
-			'embed'			=> '<iframe src="http://www.tudou.com/programs/view/html5embed.action?code=%1$s&autoPlay=false&playType=AUTO" allowfullscreen="true" width="%2$d" height="%3$d"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.6,
-			'https_enabled'	=> false,
-			'url_regex'		=> [
-				'#tudou.com/listplay/([\d\w-]+)/([\d\w-]+).html#is',
-				'#tudou.com/listplay/([\d\w-]+).html#is'
-			],
-			'id_regex'		=> [
-				'#^([\d\w-]+)$#is'
-			]
-		],
-		'twitch' => [
-			'embed'			=> '<iframe src="http://www.twitch.tv/%1$s/embed" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.64021164021164, //(620 / 378)
-			'https_enabled'	=> false,
-			'url_regex'		=> [
-				'#twitch\.tv/([\d\w-]+)(?:/\S+?)?#is'
-			],
-			'id_regex'		=> [
-				'#^([\d\w-]+)$#is'
-			]
-		],
-		'twitchvod' => [
-			'embed'			=> '<object id="clip_embed_player_flash" type="application/x-shockwave-flash" width="%2$d" height="%3$d" data="http://www.twitch.tv/widgets/archive_embed_player.swf" bgcolor="#000000">
-	<param name="movie" value="http://www.twitch.tv/widgets/archive_embed_player.swf" />
-	<param name="allowScriptAccess" value="always" />
-	<param name="allowNetworking" value="all" />
-	<param name="allowFullScreen" value="true" />
-	<param name="flashvars" value="channel=%1$s&amp;auto_play=false&amp;start_volume=100&amp;chapter_id=%4$d" />
-</object>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.64021164021164, //(620 / 378)
-			'https_enabled'	=> false,
-			'url_regex'		=> [
-				'#twitch\.tv/([\d\w-]+)/c/([\d]+)(?:/\S+?)?#is'
-			],
-			'id_regex'		=> [
-				'#^([\d\w-]+)/c/([\d]+)$#is'
-			]
-		],
-		'videomaten' => [
-			'embed'			=> '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="%2$d" height="%3$d" id="videomat" align="middle"><param name="allowScriptAccess" value="sameDomain" /><param name="movie" value="http://89.160.51.62/recordMe/play.swf?id=%1$s" /><param name="loop" value="false" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" /><embed src="http://89.160.51.62/recordMe/play.swf?id=%1$s" loop="false" quality="high" bgcolor="#ffffff" width="%2$d" height="%3$d" name="videomat" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object>',
-			'default_ratio'	=> 1.5, //(300 / 200)
-			'https_enabled'	=> false
-		],
-		'vimeo' => [
-			'embed'			=> '<iframe src="//player.vimeo.com/video/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio' => 1.2994923857868, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#vimeo\.com/([\d]+)#is',
-				'#vimeo\.com/channels/[\d\w-]+/([\d]+)#is'
-			],
-			'id_regex'		=> [
-				'#^([\d]+)$#is'
-			],
-			'oembed'		=> '%4$s//vimeo.com/api/oembed.json?url=%1$s&width=%2$d&maxwidth=%2$d'
-		],
-		'vine' => [
-			'embed'			=> '<iframe src="//vine.co/v/%1$s/embed/simple" width="%2$d" height="%3$d" frameborder="0"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio' => 1, //(1 / 1)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#vine\.co/v/([a-zA-Z0-9]+)#is'
-			],
-			'id_regex'		=> [
-				'#^([a-zA-Z0-9]+)$#is'
-			]
-		],
-		'yahoo' => [
-			'embed'			=> '<iframe src="//screen.yahoo.com/%1$s.html?format=embed" width="%2$d" height="%3$d" scrolling="no" frameborder="0" allowfullscreen="true" allowtransparency="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#screen\.yahoo\.com/([\w\d\-]+?-\d+).html#is'
-			],
-			'id_regex'		=> [
-				'#^([\w\d\-]+?-\d+)$#is'
-			]
-		],
-		'youtube' => [
-			'embed'			=> '<iframe src="//www.youtube.com/embed/%1$s%4$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#v=([\d\w-]+)(?:&\S+?)?#is',
-				'#youtu\.be/([\d\w-]+)#is'
-			],
-			'id_regex'		=> [
-				'#^([\d\w-]+)$#is'
-			],
-			'oembed'		=> [
-				'http'	=> 'http://www.youtube.com/oembed?url=%1$s&width=%2$d&maxwidth=%2$d',
-				'https'	=> 'http://www.youtube.com/oembed?scheme=https&url=%1$s&width=%2$d&maxwidth=%2$d'
-			]
-		],
-		'youtubeplaylist' => [
-			'embed'			=> '<iframe src="//www.youtube.com/embed/videoseries?list=%1$s%4$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.77777777777778, //(16 / 9)
-			'https_enabled'	=> true,
-			'url_regex'		=> [
-				'#list=([\d\w-]+)(?:&\S+?)?#is'
-			],
-			'id_regex'		=> [
-				'#^([\d\w-]+)$#is'
-			]
-		],
-		'youku' => [
-			'embed'			=> '<iframe src="http://player.youku.com/embed/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
-			'default_width'	=> 640,
-			'default_ratio'	=> 1.6,
-			'https_enabled'	=> false,
-			'url_regex'		=> [
-				'#id_([\d\w-]+).html#is',
-			],
-			'id_regex'		=> [
-				'#^(?:id_)?([\d\w-]+)$#is'
-			]
-		]
-	];
+	static private $services = array(
+		'archiveorg' => array(
+			'embed' => '<iframe src="//archive.org/embed/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.2994923857867999,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#archive\\.org/(?:details|embed)/([\\d\\w\\-_][^/\\?\\#]+)#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d\\w\\-_][^/\\?\\#]+)$#is'
+			)
+		),
+		'bambuser' => array(
+			'embed' => '<iframe src="//embed.bambuser.com/broadcast/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.2994923857867999,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#bambuser\\.com/(?:v|broadcast)/([\\d\\w\\-\\+]+)(?:/\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d\\w\\-\\+]+)$#is'
+			)
+		),
+		'bambuser_channel' => array(
+			'embed' => '<iframe src="//embed.bambuser.com/channel/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.2994923857867999,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#bambuser\\.com/channel/([\\d\\w\\-\\+]+)(?:/\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d\\w\\-\\+]+)$#is'
+			)
+		),
+		'blip' => array(
+			'default_width' => 640,
+			'default_ratio' => 1.2994923857867999,
+			'https_enabled' => false,
+			'url_regex' => array(
+				0 => '#(http://blip\\.tv/[\\w\\d\\-]+?/[\\w\\d\\-]+?-[\\d]+)#is'
+			),
+			'oembed' => 'http://blip.tv/oembed/?url=%1$s&width=%2$d&maxwidth=%2$d'
+		),
+		'bing' => array(
+			'embed' => '<iframe src="//hub.video.msn.com/embed/%1$s" width="%2$d" height="%3$d" frameborder="0" scrolling="no" noscroll allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.7777777777777799,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#bing.com/videos/watch/video/[\\w\\d\\-]+?/([a-zA-Z0-9]+)(?:/\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([a-zA-Z0-9]+)$#is'
+			)
+		),
+		'collegehumor' => array(
+			'embed' => '<iframe src="//www.collegehumor.com/e/%1$s" width="%2$d" height="%3$d" frameborder="0" allowFullScreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.6260162601626,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#collegehumor\\.com/(?:video|e)/([\\d]+)#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d]+)$#is'
+			)
+		),
+		'dailymotion' => array(
+			'embed' => '<iframe src="//www.dailymotion.com/embed/video/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.7777777777777799,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#dailymotion\\.com/(?:video|embed/video)/([a-zA-Z0-9]+)(?:_\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([a-zA-Z0-9]+)(?:_\\S+?)#is'
+			)
+		),
+		'divshare' => array(
+			'embed' => '<iframe src="//www.divshare.com/flash/video2?myId=%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.7777777777777799,
+			'https_enabled' => true
+		),
+		'funnyordie' => array(
+			'embed' => '<iframe src="http://www.funnyordie.com/embed/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.6410256410256401,
+			'https_enabled' => false,
+			'url_regex' => array(
+				0 => '#funnyordie\\.com/(?:videos|embed)/([a-zA-Z0-9]+)(?:/\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([a-zA-Z0-9]+)$#is'
+			)
+		),
+		'gfycat' => array(
+			'embed' => '<iframe src="//gfycat.com/ifr/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true" scrolling="no" style="-webkit-backface-visibility: hidden;-webkit-transform: scale(1);" ></iframe>',
+			'default_width' => 640,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#gfycat\\.com/([a-zA-Z]+)#is'
+			),
+			'id_regex' => array(
+				0 => '#^([a-zA-Z]+)$#is'
+			)
+		),
+		'kickstarter' => array(
+			'embed' => '<iframe src="//www.kickstarter.com/projects/%1$s/widget/video.html" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.7777777777777799,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#kickstarter\\.com/projects/([\\d\\w-]+/[\\d\\w-]+)(?:/widget/video.html)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d\\w-]+/[\\d\\w-]+)$#is'
+			)
+		),
+		'metacafe' => array(
+			'embed' => '<iframe src="http://www.metacafe.com/embed/%1$s/" width="%2$d" height="%3$d" frameborder="0" allowFullScreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.7777777777777799,
+			'https_enabled' => false,
+			'url_regex' => array(
+				0 => '#metacafe\\.com/(?:watch|embed)/([\\d]+)(?:/\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d]+)$#is'
+			)
+		),
+		'nico' => array(
+			'embed' => '<script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/%1$s?w=%2$d&h=%3$d"></script>',
+			'default_width' => 640,
+			'default_ratio' => 1.59609120521173,
+			'https_enabled' => false,
+			'url_regex' => array(
+				0 => '#nicovideo\\.jp/watch/((?:[a-zA-Z]{2})?[\\d]+)#is'
+			),
+			'id_regex' => array(
+				0 => '#^((?:[a-zA-Z]{2})?[\\d]+)$#is'
+			)
+		),
+		'rutube' => array(
+			'embed' => '<iframe src="//rutube.ru/play/embed/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.7777777777777799,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#rutube\\.ru/video/([a-zA-Z0-9]+)(?:/\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([a-zA-Z0-9]+)$#is'
+			)
+		),
+		'teachertube' => array(
+			'embed' => '<iframe src="http://www.teachertube.com/embed/video/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.72972972972973,
+			'https_enabled' => false,
+			'url_regex' => array(
+				0 => '#teachertube\\.com/video/(?:[\\w\\d\\-]+?-)?([\\d]+)$#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d]+)$#is'
+			)
+		),
+		'ted' => array(
+			'embed' => '<iframe src="//embed-ssl.ted.com/talks/%1$s.html" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.7777777777777799,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#ted\\.com/talks/([\\d\\w\\-]+)(?:/\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d\\w\\-]+)$#is'
+			)
+		),
+		'tudou' => array(
+			'embed' => '<iframe src="http://www.tudou.com/programs/view/html5embed.action?code=%1$s&autoPlay=false&playType=AUTO" allowfullscreen="true" width="%2$d" height="%3$d"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.6000000000000001,
+			'https_enabled' => false,
+			'url_regex' => array(
+				0 => '#tudou.com/listplay/([\\d\\w-]+)/([\\d\\w-]+).html#is',
+				1 => '#tudou.com/listplay/([\\d\\w-]+).html#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d\\w-]+)$#is'
+			)
+		),
+		'twitch' => array(
+			'embed' => '<iframe src="http://www.twitch.tv/%1$s/embed" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.64021164021164,
+			'https_enabled' => false,
+			'url_regex' => array(
+				0 => '#twitch\\.tv/([\\d\\w-]+)(?:/\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d\\w-]+)$#is'
+			)
+		),
+		'twitchvod' => array(
+			'embed' => '<object id="clip_embed_player_flash" type="application/x-shockwave-flash" width="%2$d" height="%3$d" data="http://www.twitch.tv/widgets/archive_embed_player.swf" bgcolor="#000000">
+		<param name="movie" value="http://www.twitch.tv/widgets/archive_embed_player.swf" />
+		<param name="allowScriptAccess" value="always" />
+		<param name="allowNetworking" value="all" />
+		<param name="allowFullScreen" value="true" />
+		<param name="flashvars" value="channel=%1$s&amp;auto_play=false&amp;start_volume=100&amp;chapter_id=%4$d" />
+	</object>',
+			'default_width' => 640,
+			'default_ratio' => 1.64021164021164,
+			'https_enabled' => false,
+			'url_regex' => array(
+				0 => '#twitch\\.tv/([\\d\\w-]+)/c/([\\d]+)(?:/\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d\\w-]+)/c/([\\d]+)$#is'
+			)
+		),
+		'videomaten' => array(
+			'embed' => '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="%2$d" height="%3$d" id="videomat" align="middle"><param name="allowScriptAccess" value="sameDomain" /><param name="movie" value="http://89.160.51.62/recordMe/play.swf?id=%1$s" /><param name="loop" value="false" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" /><embed src="http://89.160.51.62/recordMe/play.swf?id=%1$s" loop="false" quality="high" bgcolor="#ffffff" width="%2$d" height="%3$d" name="videomat" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object>',
+			'default_ratio' => 1.5,
+			'https_enabled' => false
+		),
+		'vimeo' => array(
+			'embed' => '<iframe src="//player.vimeo.com/video/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.2994923857867999,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#vimeo\\.com/([\\d]+)#is',
+				1 => '#vimeo\\.com/channels/[\\d\\w-]+/([\\d]+)#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d]+)$#is'
+			),
+			'oembed' => '%4$s//vimeo.com/api/oembed.json?url=%1$s&width=%2$d&maxwidth=%2$d'
+		),
+		'vine' => array(
+			'embed' => '<iframe src="//vine.co/v/%1$s/embed/simple" width="%2$d" height="%3$d" frameborder="0"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#vine\\.co/v/([a-zA-Z0-9]+)#is'
+			),
+			'id_regex' => array(
+				0 => '#^([a-zA-Z0-9]+)$#is'
+			)
+		),
+		'yahoo' => array(
+			'embed' => '<iframe src="//screen.yahoo.com/%1$s.html?format=embed" width="%2$d" height="%3$d" scrolling="no" frameborder="0" allowfullscreen="true" allowtransparency="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.7777777777777799,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#screen\\.yahoo\\.com/([\\w\\d\\-]+?-\\d+).html#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\w\\d\\-]+?-\\d+)$#is'
+			)
+		),
+		'youtube' => array(
+			'embed' => '<iframe src="//www.youtube.com/embed/%1$s%4$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.7777777777777799,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#v=([\\d\\w-]+)(?:&\\S+?)?#is',
+				1 => '#youtu\\.be/([\\d\\w-]+)#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d\\w-]+)$#is'
+			),
+			'oembed' => array(
+				'http' => 'http://www.youtube.com/oembed?url=%1$s&width=%2$d&maxwidth=%2$d',
+				'https' => 'http://www.youtube.com/oembed?scheme=https&url=%1$s&width=%2$d&maxwidth=%2$d'
+			)
+		),
+		'youtubeplaylist' => array(
+			'embed' => '<iframe src="//www.youtube.com/embed/videoseries?list=%1$s%4$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.7777777777777799,
+			'https_enabled' => true,
+			'url_regex' => array(
+				0 => '#list=([\\d\\w-]+)(?:&\\S+?)?#is'
+			),
+			'id_regex' => array(
+				0 => '#^([\\d\\w-]+)$#is'
+			)
+		),
+		'youku' => array(
+			'embed' => '<iframe src="http://player.youku.com/embed/%1$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'default_width' => 640,
+			'default_ratio' => 1.6000000000000001,
+			'https_enabled' => false,
+			'url_regex' => array(
+				0 => '#id_([\\d\\w-]+).html#is'
+			),
+			'id_regex' => array(
+				0 => '#^(?:id_)?([\\d\\w-]+)$#is'
+			)
+		)
+	);
 
 	/**
 	 * This object instance's service information.
 	 *
 	 * @var		array
 	 */
-	private $service = [];
+	private $service = array();
 
 	/**
 	 * Video ID
