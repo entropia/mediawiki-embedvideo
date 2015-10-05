@@ -46,12 +46,12 @@ $wgAutoloadClasses['EmbedVideo\OEmbed']			= "{$extDir}/classes/OEmbed.php";
 
 $wgHooks['ParserFirstCallInit'][]				= 'EmbedVideoHooks::onParserFirstCallInit';
 
-$wgResourceModules['ext.embedVideo'] = [
+$wgResourceModules['ext.embedVideo'] = array(
 	'localBasePath'	=> __DIR__,
 	'remoteExtPath'	=> 'EmbedVideo',
 	'styles'		=> ['css/embedvideo.css'],
 	'position'		=> 'top'
-];
+);
 
 if (!isset($wgEmbedVideoDefaultWidth) && (isset($_SERVER['HTTP_X_MOBILE']) && $_SERVER['HTTP_X_MOBILE'] == 'true') && $_COOKIE['stopMobileRedirect'] != 1) {
 	//Set a smaller default width when in mobile view.

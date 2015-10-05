@@ -10,7 +10,7 @@
  *
  * This shim maintains compatibility back to MediaWiki 1.17.
  */
-$messages = [];
+$messages = array();
 if (!function_exists('wfJsonI18nShim9b746919b3007182')) {
 	function wfJsonI18nShim9b746919b3007182($cache, $code, &$cachedData) {
 		$codeSequence = array_merge([$code], $cachedData['fallbackSequence']);

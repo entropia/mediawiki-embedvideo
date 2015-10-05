@@ -417,12 +417,12 @@ class VideoService {
 		$html = false;
 		if (array_key_exists('embed', $this->service)) {
 			//Embed can be generated locally instead of calling out to the service to get it.
-			$data = [
+			$data = array(
 				$this->service['embed'],
 				htmlentities($this->getVideoID(), ENT_QUOTES),
 				$this->getWidth(),
 				$this->getHeight(),
-			];
+			);
 
 			if ($this->getExtraIds() !== false) {
 				foreach ($this->getExtraIds() as $extraId) {
